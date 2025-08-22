@@ -1,0 +1,185 @@
+/* Body & Clock Container */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("generated-image (16).png") no-repeat center center/cover;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background 1s ease, color 0.5s ease;
+}
+
+.clock-container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 25px;
+  border-radius: 20px;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+  width: 95%;
+  max-width: 450px;
+}
+
+/* Digital Clock Styling */
+.digital-clock {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin: 20px 0;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.digital-clock span { margin: 0 3px; }
+
+/* Blinking Colon */
+.colon { animation: blink 1s step-start infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Day and Date */
+.day-date { margin-top: 10px; font-size: 1rem; color: #ffecb3; }
+
+/* Animated seconds bar */
+.seconds-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 4px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+#secondsProgress {
+  height: 100%;
+  width: 0%;
+  background: #ff9800;
+  border-radius: 4px;
+  transition: width 1s linear;
+}
+
+/* Multiple Alarms */
+.alarm-container {
+  margin-top: 15px;
+  text-align: center;
+}
+.alarm-container input, .alarm-container select {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  margin: 5px 0;
+  width: 100%;
+  max-width: 300px;
+}
+.file-label {
+  display: block;
+  font-size: 0.9rem;
+  margin: 8px 0 2px;
+}
+.alarm-container button {
+  padding: 10px;
+  margin: 6px 2px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #2196f3;
+  color: white;
+  width: 100%;
+  max-width: 200px;
+}
+#alarmList {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+#alarmList li {
+  margin: 5px 0;
+  background: rgba(255,255,255,0.15);
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+#alarmList li button {
+  padding: 5px 10px;
+  font-size: 12px;
+  background: #ff5252;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Theme Button */
+#themeBtn {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  max-width: 250px;
+  background: #4caf50;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width:600px){
+  .digital-clock{ font-size:2.2rem; }
+  .clock-container{ padding:20px; }
+  .day-date{ font-size:0.9rem; }
+  h1 { font-size: 1.4rem; }
+}
+
+/* Alarm Modal */
+.alarm-modal {
+  display: none; 
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background:  rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.alarm-modal.flash {
+  animation: flashBg 1s infinite;
+}
+@keyframes flashBg {
+  0%, 100% { background: rgba(255,0,0,0.7); }
+  50% { background: rgba(255,255,0,0.7); }
+}
+.modal-content {
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  width: 90%;
+  max-width: 320px;
+}
+#modalLabel {
+  font-size: 1.6rem;
+  font-weight: bold;
+  animation: blinkLabel 1s step-start infinite;
+}
+@keyframes blinkLabel {
+  50% { opacity: 0; }
+}
+.modal-buttons button {
+  padding: 10px 15px;
+  margin: 8px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 45%;
+  font-size: 0.9rem;
+}
+.modal-buttons button:hover {
+  transform: scale(1.05);
+}
