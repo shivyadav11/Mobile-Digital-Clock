@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock with Multiple Alarms</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="clock-container">
+    <h1>🕒 Digital Clock</h1>
+    <div class="digital-clock">
+      <span id="hours">00</span>
+      <span class="colon">:</span>
+      <span id="minutes">00</span>
+      <span class="colon">:</span>
+      <span id="seconds">00</span>
+      <span id="ampm">AM</span>
+    </div>
+
+    <div class="seconds-bar">
+      <div id="secondsProgress"></div>
+    </div>
+
+    <div id="dayDate" class="day-date">Monday, Jan 1, 2025</div>
+
+    <!-- Multiple Alarms Section -->
+    <div class="alarm-container">
+      <h3>Set Alarm</h3>
+      <input type="time" id="alarmTime">
+      <input type="text" id="alarmLabel" placeholder="Label">
+      <label for="alarmFile" class="file-label">Choose Tone</label>
+      <input type="file" id="alarmFile" accept="audio/*">
+      <button id="setAlarmBtn">➕ Add Alarm</button>
+      <p>Active Alarms:</p>
+      <ul id="alarmList"></ul>
+    </div>
+
+    <!-- Theme Switcher -->
+    <button id="themeBtn">Switch Theme</button>
+  </div>
+
+  <!-- Custom Alarm Modal -->
+  <div id="alarmModal" class="alarm-modal">
+    <div class="modal-content">
+      <h2 id="modalLabel">Alarm!</h2>
+      <p id="modalTime"></p>
+      <label for="snoozeMinutes">Snooze (minutes): </label>
+      <input type="number" id="snoozeMinutes" min="1" value="5">
+      <div class="modal-buttons">
+        <button id="dismissBtn">Dismiss</button>
+        <button id="snoozeBtn">Snooze</button>
+        <button id="stopBtn">Stop</button>
+        <button id="repeatBtn">Repeat</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="alarmAudio" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
